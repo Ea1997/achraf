@@ -23,7 +23,40 @@ zone_rouge_securite:any=0;
   constructor() { }
 
   ngOnInit(): void {
-    
+    var myChart = new Chart('myChart', {
+        type: 'bar',
+        data: {
+            labels: ['Vert', 'Jaune', 'Rouge Base', 'Rouge sécurisé'],
+            datasets: [{
+                label: '',
+                data: [this.zone_verte, this.zone_jaune, this.zone_rouge_base, this.zone_rouge_securite],
+                backgroundColor: [
+                    'rgba(0, 128, 0, 1)',
+                    'rgba(255, 255 , 0, 1)',
+                    'rgba(220, 20, 30, 1)',
+                    'rgba(178,34,34, 1)',
+                 
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+               
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+      });
 
   }
   changed(){
@@ -34,41 +67,11 @@ zone_rouge_securite:any=0;
 this.zone_rouge_base=this.ASRLT*this.ADU*this.LT_Adjust;
 this.zone_rouge_securite=this.zone_rouge_base*this.Var_Adjust;
 this.zone_rouge=this.zone_rouge_base+this.zone_rouge_securite;
-var myChart = new Chart('myChart', {
-  type: 'bar',
-  data: {
-      labels: ['Vert', 'Jaune', 'Rouge Base', 'Rouge sécurisé'],
-      datasets: [{
-          label: '',
-          data: [this.zone_verte, this.zone_jaune, this.zone_rouge_base, this.zone_rouge_securite],
-          backgroundColor: [
-              'rgba(0, 128, 0, 1)',
-              'rgba(255, 255 , 0, 1)',
-              'rgba(220, 20, 30, 1)',
-              'rgba(178,34,34, 1)',
-           
-          ],
-          borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-         
-          ],
-          borderWidth: 1
-      }]
-  },
-  options: {
-      scales: {
-          yAxes: [{
-              ticks: {
-                  beginAtZero: true
-              }
-          }]
-      }
-  }
-});
-this.status=true;
+
+setTimeout(()=>{
+    this.status=true;
+},2000);
+
 
    }else{
      this.message="Veuillez remplir tous les champs";
