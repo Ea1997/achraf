@@ -1,0 +1,45 @@
+<form >
+    <label style="color: red;">{{message}}</label><br><br>
+    <label>ADU :</label><br><br>
+<input type="number" name="ADU "[(ngModel)]="ADU" ><br><br>
+<label>ASRLT :</label><br><br>
+<input type="number" name="ASRLT "[(ngModel)]="ASRLT" ><br><br>
+<label>LT Adjust :</label><br><br>
+<input type="range" min="0" max="1" step=".05" value="0"  name="LT_Adjust "[(ngModel)]="LT_Adjust" ><br><br>
+<label>Var Adjust :</label><br><br>
+<input type="range" min="0" max="1" step=".05" value="0" name="Var_Adjust "[(ngModel)]="Var_Adjust" ><br><br>
+<label>MOQ :</label><br><br>
+<input type="number" name="MOQ "[(ngModel)]="MOQ" ><br><br>
+<label>Batch :</label><br><br>
+<input type="number" name="Batch "[(ngModel)]="Batch" ><br><br>
+<button color="primary" (click)="changed()">
+  Submit
+</button>
+</form>
+<div *ngIf="status == true">
+  <table>
+    <tr>
+      <td>Color</td>
+      <td>Zone</td>
+   
+    </tr>
+    <tr>
+      <td>Verte</td>
+      <td>{{zone_verte}}</td>
+    </tr>
+    <tr>
+      <td>Jaune</td>
+      <td>{{zone_jaune}}</td>
+    </tr>
+    <tr>
+      <td>Rouge sécurisé</td>
+      <td>{{zone_rouge_securite}}</td>
+    </tr>
+    <tr>
+      <td>Rouge de base</td>
+      <td>{{zone_rouge_base}}</td>
+    </tr>
+  </table>
+  <div style="width: 600px; height: 600px; margin-left: auto;margin-right: auto;"> <canvas id="myChart"></canvas></div>
+ 
+</div>
