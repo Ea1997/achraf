@@ -7,19 +7,19 @@ import {Chart} from 'chart.js';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-ADU:any;
-ASRLT:any;
-LT_Adjust:any;
-Var_Adjust:any;
-MOQ:any;
-Batch:any;  
+ADU:any=0;
+ASRLT:any=0;
+LT_Adjust:any=0;
+Var_Adjust:any=0;
+MOQ:any=0;
+Batch:any=0;  
 status:boolean=false;
 message:string="";
-zone_verte:any;
-zone_jaune:any;
-zone_rouge:any;
-zone_rouge_base:any;
-zone_rouge_securite:any;
+zone_verte:any=0;
+zone_jaune:any=0;
+zone_rouge:any=0;
+zone_rouge_base:any=0;
+zone_rouge_securite:any=0;
   constructor() { }
 
   ngOnInit(): void {
