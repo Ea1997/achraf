@@ -60,8 +60,8 @@ zone_rouge_securite:any=0;
 
   }
   changed(){
-   
-   if(this.ADU && this.ASRLT && this.Batch && this.LT_Adjust && this.MOQ && this.Var_Adjust){
+   this.message="";
+   if(this.ADU != null && this.ASRLT != null && this.Batch != null && this.LT_Adjust != null && this.MOQ != null && this.Var_Adjust != null){
      this.zone_verte=Math.max(this.MOQ, this.ASRLT*this.ADU*this.LT_Adjust, this.ADU*this.Batch);
      this.zone_jaune=this.ADU*this.ASRLT;
 this.zone_rouge_base=this.ASRLT*this.ADU*this.LT_Adjust;
@@ -69,6 +69,7 @@ this.zone_rouge_securite=this.zone_rouge_base*this.Var_Adjust;
 this.zone_rouge=this.zone_rouge_base+this.zone_rouge_securite;
 
 setTimeout(()=>{
+    this.ngOnInit();
     this.status=true;
 },2000);
 
